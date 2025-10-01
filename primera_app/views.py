@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializer import Nacionalidad_Serializer, Autor_Serializer, Biblioteca_Serializer, Lector_Serializer, Libro_Serializer, Direccion_Serializer, Comuna_Serializer, Prestamo_Serializer
+from .serializer import NacionalidadSerializer, AutorSerializer, BibliotecaSerializer, LectorSerializer, LibroSerializer, DireccionSerializer, ComunaSerializer, PrestamoSerializer
 from .models import Lector, Libro, Nacionalidad, Comuna, Direccion, Biblioteca, Autor, Prestamo
 # Create your views here.
 
@@ -9,32 +9,32 @@ def pagina_inicio(request):
 
 class LectorViewSet(viewsets.ModelViewSet):
     queryset = Lector.objects.all()
-    serializer_class = Lector_Serializer
+    serializer_class = LectorSerializer
 
 class LibroViewSet(viewsets.ModelViewSet):
     queryset = Libro.objects.all()
-    serializer_class = Libro_Serializer  
+    serializer_class = LibroSerializer  
 
 class NacionalidadViewSet(viewsets.ModelViewSet):
     queryset = Nacionalidad.objects.all()
-    serializer_class = Nacionalidad_Serializer
+    serializer_class = NacionalidadSerializer
 
 class ComunaViewSet(viewsets.ModelViewSet):
     queryset = Comuna.objects.all()
-    serializer_class = Comuna_Serializer
+    serializer_class = ComunaSerializer
 
 class DireccionViewSet(viewsets.ModelViewSet):
     queryset = Direccion.objects.all()
-    serializer_class = Direccion_Serializer
+    serializer_class = DireccionSerializer
 
 class BibliotecaViewSet(viewsets.ModelViewSet):
     queryset = Biblioteca.objects.all()
-    serializer_class = Biblioteca_Serializer
+    serializer_class = BibliotecaSerializer
 
 class AutorViewSet(viewsets.ModelViewSet):
     queryset = Autor.objects.all()
-    serializer_class = Autor_Serializer
+    serializer_class = AutorSerializer
     
 class PrestamoViewSet(viewsets.ModelViewSet):
     queryset = Prestamo.objects.all()
-    serializer_class = Prestamo_Serializer
+    serializer_class = PrestamoSerializer
