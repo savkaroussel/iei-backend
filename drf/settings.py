@@ -29,6 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = '/'
+
 
 # Application definition
 
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'primera_app',
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -78,14 +81,14 @@ WSGI_APPLICATION = 'drf.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': config('DB_ENGINE'),
-        # 'NAME': config('DB_NAME'),
-        # 'USER': config('DB_USER'),
-        #'PASSWORD': config('DB_PASSWORD'),
-        #'HOST': config('DB_HOST'),
-        #'PORT': config('DB_PORT'),
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -130,3 +133,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# SESSION expira después de 1 hora
+SESSION_COOKIE_AGE = 3600
+
+# SESSION expira al cerrar el navegador
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# Usamos la DB para SESSION
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
